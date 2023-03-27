@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>KWON ORIGINAL APP</title>
+  </head>
+
+  <body>
+    <div class="post-form">
+      <form action="/create" method="post">
+        <div class="create-text">
+          <input type="text" name="title">
+        </div>
+        <div class="create-content">
+          <textarea name="content" rows="5"></textarea>
+        </div>
+        <div class="create-date">
+          <input type="date" name="study_date">
+        </div>
+        <button type="submit" class="create-button">投稿</button>
+      </form>
+    </div>
+
+    <div class="all-posts">
+      <% if(!posts) { %>
+        <p>投稿がありません</p>
+      <% }else{ %>
+        <% posts.forEach((post) => { %>
+          <p>Title: <%= post.title %></p>
+          <p>Title: <%= post.content %></p>
+          <p>Title: <%= post.study_date %></p>
+          <a href="/edit/<%= post.id %>">編集</a>
+        <% }) %>
+      <% } %>
+    </div>
+  </body>
+</html>

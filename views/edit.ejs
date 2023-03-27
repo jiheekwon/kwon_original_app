@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>KWON ORIGINAL APP</title>
+  </head>
+
+  <body>
+    <div class="edit-form">
+      <form action="/edit/<%= post.id %>" method="post">
+        <div class="edit-text">
+          <input type="text" name="title" value=<%= post.title %>>
+        </div>
+        <div class="edit-content">
+          <textarea name="content" rows="5"><%= post.content %></textarea>
+        </div>
+        <div class="edit-date">
+          <% const yyyy = post.study_date.getFullYear(); %>
+          <% const mm = ("0" + (post.study_date.getMonth() + 1)).slice(-2); %>
+          <% const dd = ("0" + post.study_date.getDate()).slice(-2); %>
+          <% const editDate = yyyy + '-' + mm + '-' + dd %>
+          <input type="date" name="study_date" value=<%= editDate %>>
+        </div>
+        <button type="submit" class="create-button">編集</button>
+      </form>
+    </div>
+  </body>
+
+</html>
