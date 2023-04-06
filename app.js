@@ -35,9 +35,10 @@ app.get("/", async (_, res) => {
 app.post("/create", async (req, res) => {
   const postTitle = req.body.title;
   const postContent = req.body.content;
+  const postStudyDate = req.body.study_date;
   // await knex("post").insert({title: postTitle, content: postContent, study_date: postDate}).then(console.log("DB inset OK"));
   // client.query("insert into post (title, content, study_date) values ($1, $2, $3)", [postTitle, postContent, postDate]);
-  await knex("post").insert({title: postTitle, content: postContent});
+  await knex("post").insert({title: postTitle, content: postContent, study_date: postStudyDate});
   return res.send("ok");
 });
 
